@@ -1,35 +1,45 @@
 <?php
 
 namespace App\Database;
-
-// class Database
-// {
-//     // Declaración de una propiedad
-//     private $servername = '127.0.0.1';
-//     private $username = 'root';
-//     private $db_port = '';
-//     private $db_name = '';
-//     private $password = '';
-//     public function conectar() {
-//       try {
-//         $conn = new PDO("mysql:host=$servername;dbname=app", $username, $password);
-//         // set the PDO error mode to exception
-//         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//         echo "Connected successfully";
-//       } catch(PDOException $e) {
-//         echo "Connection failed: " . $e->getMessage();
-//       }
-//     }
-// }
-
+use \mysqli;
 class Database
 {
-    // property declaration
-    public $var = 'asdfasdf';
+    // Declaración de una propiedad
 
-    // method declaration
-    public function displayVar() {
-        echo $this->var;
+    public $conn = '';
+
+    public function conectar() {
+   
+        $servername = 'localhost';
+        $username = 'root';
+        $db_port = '';
+        $db_name = '';
+        $password = '';
+              
+        // Create connection
+        $this->$conn = new mysqli($servername, $username, $password);
+              
+        // Check connection
+        if ($this->$conn->connect_error) {
+          die("Connection failed: " . $this->$conn->connect_error);
+        }
+        echo "Connected successfully";
+    }
+
+    public function select() {
+      $sql = "SELECT username FROM user";
+      $result = $this->$conn->mysqli($sql);
+
+      if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+          echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+        }
+      } else {
+        echo "0 results";
+      }
+      $this->$conn->close();
     }
 }
+
 ?>

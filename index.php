@@ -28,6 +28,7 @@ $user = new SimpleClass;
 $user->displayVar();
 
 $db = new Database;
-$db->displayVar();
+$db->conectar();
+$db->select();
 
 ?>

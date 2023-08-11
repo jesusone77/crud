@@ -12,7 +12,9 @@
 
 <?php 
 include 'App\Database\Database.php';
+include 'App\Database\Select.php';
 use App\Database\Database;
+use App\Database\Select;
 
 class SimpleClass
 {
@@ -27,8 +29,7 @@ class SimpleClass
 $user = new SimpleClass;
 $user->displayVar();
 
-$db = new Database;
-$db->conectar();
-$db->select();
+$db = new Select;
+$db->Select();
 
 ?>

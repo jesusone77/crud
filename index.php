@@ -11,8 +11,8 @@
 </html>
 
 <?php 
+include 'App\Database\Database.php';
 use App\Database\Database;
-//include 'App\Database\Database.php';
 
 class SimpleClass
 {

@@ -11,32 +11,23 @@
 </html>
 
 <?php 
+use App\Database\Database;
+//include 'App\Database\Database.php';
 
-use App\Database as Database;
+class SimpleClass
+{
+    // property declaration
+    public $var = 'a default value';
 
-// class index 
-// {
-//     // echo('hola');
-//     function __construct(){
-//         echo '<h1>Hola</h1>';
-//         $db = new Database;
-//         $db->conecct();
-//     }
-// }
-
-
-class Index {
-    public $saludo = "Hola! <br>";
-    // Con el constructor disparamos un echo cada vez que se instancia la clase
-    function __construct(){
-        echo $this->saludo;
-    }
-    // Si llamamos a este método, volvemos a instanciar la clase
-    public function saludar(){
-        $objeto = new Database;
-        return $objeto;
+    // method declaration
+    public function displayVar() {
+        echo '<br>'.$this->var.'</br>';
     }
 }
-$obj = new Database(); // Devuelve Hola!
-$obj->saludar(); // Devuelve Hola!
+$user = new SimpleClass;
+$user->displayVar();
+
+$db = new Database;
+$db->displayVar();
+
 ?>

@@ -14,9 +14,9 @@ function main($titulo,$autor,$no_page,$action) {
     }
 
     $index = new Index;
-    $autor = $index->get_titulo();
-    $autor = $index->get_autor();
-    $no_page = $index->get_no_page();
+    $autor = $index->getTitulo();
+    $autor = $index->getAutor();
+    $no_page = $index->getNoPage();
     echo 'Titutlo: '.$titulo.' Autor : '.$autor.' No. Pagina: '.$no_page;
 }
 
@@ -36,25 +36,25 @@ Class Index {
         $this->action = $_POST["action"];
     }
 
-    function get_titulo(){
+    function getTitulo(){
         return $this->titulo;
     }
 
-    function get_autor(){
+    function getAutor(){
         return $this->autor;
     }
 
-    function get_no_page(){
+    function getNoPage(){
         return $this->no_page;
     }
 
-    function get_action(){
+    function getAction(){
         return $this->action;
     }
 
-    // function Create() {
+    function Create() {
 
-    // }
+    }
     
 }
 

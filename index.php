@@ -23,7 +23,7 @@
             <p class="fs-1 font-monospace">C R U D</p>
           </div>
           <div class="g-col-12 text-start">
-            <form action="ControllerIndex.php">
+            <form action="ControllerIndex.php" method="post">
               <div class="row">
                 <div class="col-2">
 
@@ -32,24 +32,25 @@
                   <p class="fs-2">Create:</p>
                 </div>
                 <div class="col-2">
-                  <input type="text" id="Titulo" class="form-control" aria-describedby="titulo">
+                  <input type="text" id="Titulo" name="titulo" class="form-control" aria-describedby="titulo">
                   <div id="titulo" class="form-text">
                     Titulo
                   </div>
                 </div>
                 <div class="col-2">
-                  <input type="text" id="Autor" class="form-control" aria-describedby="autor">
+                  <input type="text" id="autor" name="autor" class="form-control" aria-describedby="autor">
                   <div id="autor" class="form-text">
                     Autor
                   </div>
                 </div>
                 <div class="col-2">
-                  <input type="text" id="no_page" class="form-control" aria-describedby="no_page">
+                  <input type="text" id="no_page" name="no_page" class="form-control" aria-describedby="no_page">
                   <div id="no_page" class="form-text">
                     No. Page
                   </div>
                 </div>
                 <div class="col-1">
+                <input type="hidden" id="add" name="action" value="add">
                   <button type="submit" class="btn btn-success">Add</button>
                 </div>
                 <div class="col-2">

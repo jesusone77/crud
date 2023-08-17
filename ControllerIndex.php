@@ -1,6 +1,9 @@
 <?php
 namespace ControllerIndex;
 
+include 'ControllerDatabase.php';
+use ControllerDatabase;
+
 $titulo = $_POST["titulo"];
 $autor = $_POST["autor"];
 $no_page = $_POST["no_page"];
@@ -14,20 +17,23 @@ function main($titulo,$autor,$no_page,$action) {
     }
 
     $index = new Index;
-    $autor = $index->getTitulo();
-    $autor = $index->getAutor();
-    $no_page = $index->getNoPage();
-    echo 'Titutlo: '.$titulo.' Autor : '.$autor.' No. Pagina: '.$no_page;
+    $db = new ControllerDatabase();
+    $code = $db->insert($index);
+    echo $code;
+    // $titulo = $index->getTitulo();
+    // $autor = $index->getAutor();
+    // $no_page = $index->getNoPage();
+    // echo 'Titutlo: '.$titulo.' Autor : '.$autor.' No. Pagina: '.$no_page;
 }
 
 main($titulo,$autor,$no_page,$action);
 
 Class Index {
 
-    private $titulo;
-    private $autor;
-    private $no_page;
-    private $action;
+    public $titulo;
+    public $autor;
+    public $no_page;
+    public $action;
 
     function __construct() {
         $this->titulo = $_POST["titulo"]; 

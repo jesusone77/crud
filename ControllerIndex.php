@@ -8,13 +8,6 @@ use ControllerDatabase;
 
 function main() {
 
-
-    // $titulo = $_POST["titulo"];
-    // $autor = $_POST["autor"];
-    // $no_page = $_POST["no_page"];
-    // $action = $_POST["action"];
-    // echo " ".$titulo." ".$autor." ".$no_page." ".$action." ";
-
     // // if (!isset($titulo,$autor,$no_page) || !isset($action)) {
     // //     return;
     // // }
@@ -29,11 +22,17 @@ function main() {
     // // $no_page = $index->getNoPage();
     // // echo 'Titutlo: '.$titulo.' Autor : '.$autor.' No. Pagina: '.$no_page;
 
-    
+
 }
 
+if(!empty($_POST)) {
+    $titulo = $_POST["titulo"];
+    $autor = $_POST["autor"];
+    $no_page = $_POST["no_page"];
+    $action = $_POST["action"];
+    // echo " ".$titulo." ".$autor." ".$no_page." ".$action." ";
 main();
-
+}
 Class ControllerIndex {
 
     public $titulo;
@@ -41,12 +40,12 @@ Class ControllerIndex {
     public $no_page;
     public $action;
 
-    // function __construct() {
-    //     $this->titulo = $_POST["titulo"]; 
-    //     $this->autor = $_POST["autor"];
-    //     $this->no_page = $_POST["no_page"];
-    //     $this->action = $_POST["action"];
-    // }
+    function __construct() {
+        $this->titulo = $_POST["titulo"]; 
+        $this->autor = $_POST["autor"];
+        $this->no_page = $_POST["no_page"];
+        $this->action = $_POST["action"];
+    }
 
     function getTitulo(){
         return $this->titulo;

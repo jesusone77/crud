@@ -45,7 +45,13 @@ Class ControllerDatabase {
     }
 
     function select() {
+        $conn = $this->connection();
 
+        $sql = "SELECT * FROM libros";
+        $result = mysqli_query($conn, $sql);
+
+        mysqli_close($conn);
+        return $result;
     }
 }
 
